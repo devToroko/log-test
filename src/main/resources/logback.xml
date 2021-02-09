@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{yyyy/MM/dd HH:mm:ss.SSS} %-5level --- [%thread] %logger[%method:%line] - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+
+    <!--<appender name="rollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>src/main/resources/logs/board_log.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>src/main/resources/logs/myboard.%d{yyy-MM-dd}.log.gz</fileNamePattern> &lt;!&ndash;max History&ndash;&gt;
+            <maxHistory>30</maxHistory> &lt;!&ndash;약 한달&ndash;&gt;
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy/MM/dd HH:mm:ss.SSS} %-5level -&#45;&#45; [%thread] %logger[%method:%line] - %msg %n</pattern>
+        </encoder>
+    </appender>-->
+
+    <!-- me.sickbbang 패키지와 서브 패키지 모두 이 로거가 Logging 처리를 할 것이다. -->
+    <!-- additivity 는 아래 보이는 <root> (Root Logger) 로부터 내용을 상속 받지 않겠다는 뜻이다. -->
+    <logger name="me.sickbbang.logging_test" level="info" additivity="false">
+        <appender-ref ref="consoleAppender" />
+    </logger>
+
+
+    <!-- 기본 로거 ( Root Logger ) -->
+    <!-- 앞서 logger는 특정 패키지 (혹은 클래스) 를 위한 거였다면, root 는 모든 패키지를 의미한다. -->
+    <root level="error">
+        <appender-ref ref="consoleAppender" />
+    </root>
+
+</configuration>
+

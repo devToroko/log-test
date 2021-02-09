@@ -1,0 +1,3 @@
+14:00 INFO  me.sickbbang.logging_test.LogTest - info!!!!!
+14:00 WARN  me.sickbbang.logging_test.LogTest - warn!!!!!
+14:00 ERROR me.sickbbang.logging_test.LogTest - error!!!!
